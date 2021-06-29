@@ -13,10 +13,29 @@ import SidebarStandard from '../sidebar/SidebarStandard.vue';
 import SidebarBuild from '../sidebar/SidebarBuild.vue';
 import ShoppingCart from '../cart/ShoppingCart.vue';
 
+import DisplayEmployees from '../employee/DisplayEmployees.vue';
+import AddEmployee from '../employee/AddEmployee.vue';
+import EditEmployee from '../employee/EditEmployee.vue';
+
 Vue.use(Router);
 
 export default new Router({
   routes: [
+    {
+      path: '/employees',
+      name: 'employees',
+      component: DisplayEmployees,
+    },
+    {
+      path: '/add',
+      name: 'AddEmployee',
+      component: AddEmployee,
+    }, {
+      path: '/edit/:id',
+      name: 'EditEmployee',
+      params: true,
+      component: EditEmployee,
+    },
     {
       path: '/cart',
       name: 'Cart',

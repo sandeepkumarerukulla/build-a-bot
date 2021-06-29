@@ -23,6 +23,11 @@ Robots getters: {{robotsGettersFoo}} <br /> -->
               Build
             </router-link>
           </li>
+            <li class="nav-item">
+            <router-link to="/employees" class="nav-link" exact>
+              Employees
+            </router-link>
+          </li>
           <li class="nav-item cart">
             <router-link to="/cart" class="nav-link cart" exact>
               Cart
