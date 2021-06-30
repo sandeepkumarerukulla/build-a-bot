@@ -12,10 +12,10 @@
 
 <script>
 export default {
-  name: 'HomePage',
-  props: {
-    msg: String,
-  },
+    name: 'HomePage',
+    props: {
+        msg: String,
+    },
 };
 </script>
 

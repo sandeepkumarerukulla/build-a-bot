@@ -54,32 +54,32 @@ Robots getters: {{robotsGettersFoo}} <br /> -->
 import { mapState, mapGetters } from 'vuex';
 
 export default {
-  name: 'App',
-  computed: {
+    name: 'App',
+    computed: {
     // object syntax
-    ...mapState({
-      rootFoo: 'foo',
-      robotsFoo: (state) => state.robotsFoo,
-      usersFoo: (state) => state.usersFoo,
-    }),
-    // rootFoo() {
-    //   return this.$store.state.foo;
-    // },
-    // robotsFoo() {
-    //   return this.$store.state.robots.foo;
-    // },
-    // usersFoo() {
-    //   return this.$store.state.users.foo;
-    // },
-    ...mapGetters({ rootGettersFoo: 'foo' }),
-    ...mapGetters('robots', { robotsGettersFoo: 'foo' }),
-    // robotsGettersFoo() {
-    //   return this.$store.getters['robots/foo'];
-    // },
-    cart() {
-      return this.$store.state.robots.cart;
+        ...mapState({
+            rootFoo: 'foo',
+            robotsFoo: (state) => state.robotsFoo,
+            usersFoo: (state) => state.usersFoo,
+        }),
+        // rootFoo() {
+        //   return this.$store.state.foo;
+        // },
+        // robotsFoo() {
+        //   return this.$store.state.robots.foo;
+        // },
+        // usersFoo() {
+        //   return this.$store.state.users.foo;
+        // },
+        ...mapGetters({ rootGettersFoo: 'foo' }),
+        ...mapGetters('robots', { robotsGettersFoo: 'foo' }),
+        // robotsGettersFoo() {
+        //   return this.$store.getters['robots/foo'];
+        // },
+        cart() {
+            return this.$store.state.robots.cart;
+        },
     },
-  },
 };
 </script>
 

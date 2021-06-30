@@ -30,41 +30,41 @@
 import axios from 'axios';
 
 export default {
-  name: 'EditEmployee',
-  data() {
-    return {
-      employee: {},
-      errorMessage: '',
-    };
-  },
-  created() {
-    axios
-      .get(`/servicestack/employees/${this.$route.params.id}`)
-      .then((res) => {
-        this.employee = res.data;
-      });
-  },
-  methods: {
-    updateEmployee() {
-      const employees = {
-        Id: this.$route.params.id,
-        Name: this.employee.Name,
-        Location: this.employee.Location,
-      };
-      axios
-        .put('/servicestack/employees/', employees)
-        .then((response) => {
-          if (response.status === 200) {
-            this.$router.push('/employees');
-          } else {
-            this.errorMessage = response.errorMessage;
-          }
-        })
-        .catch((error) => {
-          this.errorMessage = error;
-        });
+    name: 'EditEmployee',
+    data() {
+        return {
+            employee: {},
+            errorMessage: '',
+        };
     },
-  },
+    created() {
+        axios
+            .get(`/servicestack/employees/${this.$route.params.id}`)
+            .then((res) => {
+                this.employee = res.data;
+            });
+    },
+    methods: {
+        updateEmployee() {
+            const employees = {
+                Id: this.$route.params.id,
+                Name: this.employee.Name,
+                Location: this.employee.Location,
+            };
+            axios
+                .put('/servicestack/employees/', employees)
+                .then((response) => {
+                    if (response.status === 200) {
+                        this.$router.push('/employees');
+                    } else {
+                        this.errorMessage = response.errorMessage;
+                    }
+                })
+                .catch((error) => {
+                    this.errorMessage = error;
+                });
+        },
+    },
 };
 </script>
 

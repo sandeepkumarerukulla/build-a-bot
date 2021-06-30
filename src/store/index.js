@@ -7,16 +7,16 @@ import userModule from './modules/users';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    foo: 'root-foo',
-  },
-  modules: {
-    robots: robotModule,
-    users: userModule,
-  },
-  getters: {
-    foo(state) {
-      return `root-getter / ${state.foo}`;
+    state: {
+        foo: 'root-foo',
     },
-  },
+    modules: {
+        robots: robotModule,
+        users: userModule,
+    },
+    getters: {
+        foo(state) {
+            return `root-getter / ${state.foo}`;
+        },
+    },
 });

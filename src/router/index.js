@@ -20,75 +20,75 @@ import EditEmployee from '../employee/EditEmployee.vue';
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: '/employees',
-      name: 'employees',
-      component: DisplayEmployees,
-    },
-    {
-      path: '/add',
-      name: 'AddEmployee',
-      component: AddEmployee,
-    }, {
-      path: '/edit/:id',
-      name: 'EditEmployee',
-      params: true,
-      component: EditEmployee,
-    },
-    {
-      path: '/cart',
-      name: 'Cart',
-      component: ShoppingCart,
-    },
-    {
-      path: '/',
-      name: 'Home',
-      components: {
-        default: HomePage,
-        sidebar: SidebarStandard,
-      },
-    }, {
-      path: '/build',
-      name: 'Build',
-      components: {
-        default: RobotBuilder,
-        sidebar: SidebarBuild,
-      },
-    }, {
-      path: '/parts/browse',
-      name: 'Browseparts',
-      component: BrowseParts,
-      children: [{
-        path: 'heads',
-        name: 'BrowseHeads',
-        component: RobotHeads,
-      }, {
-        path: 'arms',
-        name: 'BrowseArms',
-        component: RobotArms,
-      }, {
-        path: 'bases',
-        name: 'BrowseBases',
-        component: RobotBases,
-      }, {
-        path: 'torsos',
-        name: 'BrowseTorsos',
-        component: RobotTorsos,
-      },
-      ],
-    }, {
-      path: '/parts',
-      name: 'Parts',
-      component: PartInfo,
-      props: true,
-      beforeEnter(to, from, next) {
-        if (to.params.part) {
-          next(true);
-        } else {
-          next({ path: '/build' });
-        }
-      },
-    },
-  ],
+    routes: [
+        {
+            path: '/employees',
+            name: 'employees',
+            component: DisplayEmployees,
+        },
+        {
+            path: '/add',
+            name: 'AddEmployee',
+            component: AddEmployee,
+        }, {
+            path: '/edit/:id',
+            name: 'EditEmployee',
+            params: true,
+            component: EditEmployee,
+        },
+        {
+            path: '/cart',
+            name: 'Cart',
+            component: ShoppingCart,
+        },
+        {
+            path: '/',
+            name: 'Home',
+            components: {
+                default: HomePage,
+                sidebar: SidebarStandard,
+            },
+        }, {
+            path: '/build',
+            name: 'Build',
+            components: {
+                default: RobotBuilder,
+                sidebar: SidebarBuild,
+            },
+        }, {
+            path: '/parts/browse',
+            name: 'Browseparts',
+            component: BrowseParts,
+            children: [{
+                path: 'heads',
+                name: 'BrowseHeads',
+                component: RobotHeads,
+            }, {
+                path: 'arms',
+                name: 'BrowseArms',
+                component: RobotArms,
+            }, {
+                path: 'bases',
+                name: 'BrowseBases',
+                component: RobotBases,
+            }, {
+                path: 'torsos',
+                name: 'BrowseTorsos',
+                component: RobotTorsos,
+            },
+            ],
+        }, {
+            path: '/parts',
+            name: 'Parts',
+            component: PartInfo,
+            props: true,
+            beforeEnter(to, from, next) {
+                if (to.params.part) {
+                    next(true);
+                } else {
+                    next({ path: '/build' });
+                }
+            },
+        },
+    ],
 });

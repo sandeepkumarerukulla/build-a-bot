@@ -7,13 +7,13 @@
 
 <script>
 export default {
-  name: 'PartInfo',
-  props: {
-    part: {
-      type: Object,
-      required: true,
+    name: 'PartInfo',
+    props: {
+        part: {
+            type: Object,
+            required: true,
+        },
     },
-  },
 };
 
 </script>

@@ -65,42 +65,42 @@
 import PartSelector from './PartSelector.vue';
 
 export default {
-  name: 'RobotBuilder',
-  created() {
-    return this.$store.dispatch('robots/getParts');
-  },
-  computed: {
-    availableParts() {
-      return this.$store.state.robots.parts;
+    name: 'RobotBuilder',
+    created() {
+        return this.$store.dispatch('robots/getParts');
     },
-  },
-  components: { PartSelector },
-  data() {
-    return {
-      cart: [],
-      selectedRobot: {
-        head: {},
-        leftArm: {},
-        torso: {},
-        rightArm: {},
-        base: {},
-      },
-    };
-  },
-  methods: {
-    addToCart() {
-      const robot = this.selectedRobot;
-      const cost = robot.head.cost
+    computed: {
+        availableParts() {
+            return this.$store.state.robots.parts;
+        },
+    },
+    components: { PartSelector },
+    data() {
+        return {
+            cart: [],
+            selectedRobot: {
+                head: {},
+                leftArm: {},
+                torso: {},
+                rightArm: {},
+                base: {},
+            },
+        };
+    },
+    methods: {
+        addToCart() {
+            const robot = this.selectedRobot;
+            const cost = robot.head.cost
         + robot.leftArm.cost
         + robot.torso.cost
         + robot.rightArm.cost
         + robot.base.cost;
-      this.$store.dispatch('robots/addRobotToCart', { ...robot, cost })
-        .then(() => {
-          this.$router.push('/cart');
-        });
+            this.$store.dispatch('robots/addRobotToCart', { ...robot, cost })
+                .then(() => {
+                    this.$router.push('/cart');
+                });
+        },
     },
-  },
 };
 </script>
 

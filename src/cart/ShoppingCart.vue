@@ -55,18 +55,18 @@
 // import CurrencyFilter from '../shared/currency-filter';
 
 export default {
-  name: 'ShoppingCart',
-  // filters: {
-  //   currency: CurrencyFilter,
-  // },
-  computed: {
-    cart() {
-      return this.$store.state.robots.cart;
+    name: 'ShoppingCart',
+    // filters: {
+    //   currency: CurrencyFilter,
+    // },
+    computed: {
+        cart() {
+            return this.$store.state.robots.cart;
+        },
+        cartSaleItems() {
+            return this.$store.getters['robots/cartSaleItems'];
+        },
     },
-    cartSaleItems() {
-      return this.$store.getters['robots/cartSaleItems'];
-    },
-  },
 };
 </script>
 

@@ -36,45 +36,45 @@
 import axios from 'axios';
 
 export default {
-  name: 'AddEmployee',
-  data() {
-    return {
-      errors: [],
-      employee: {
-        Name: '',
-        Location: '',
-      },
-      errorMessage: '',
-    };
-  },
-  methods: {
-    addEmployee() {
-      this.errors = [];
-      
-      if (!this.employee.Name) {
-        this.errors.push('Name required.');
-      }
-
-      if (!this.employee.Location) {
-        this.errors.push('Location required.');
-      }
-
-      if (!this.errors.length) {
-        axios
-          .post('/servicestack/employees/', this.employee)
-          .then((response) => {
-            if (response.status === 200) {
-              this.$router.push('/employees');
-            } else {
-              this.errorMessage = response.errorMessage;
-            }
-          })
-          .catch((error) => {
-            this.errorMessage = error;
-          });
-      }
+    name: 'AddEmployee',
+    data() {
+        return {
+            errors: [],
+            employee: {
+                Name: '',
+                Location: '',
+            },
+            errorMessage: '',
+        };
     },
-  },
+    methods: {
+        addEmployee() {
+            this.errors = [];
+      
+            if (!this.employee.Name) {
+                this.errors.push('Name required.');
+            }
+
+            if (!this.employee.Location) {
+                this.errors.push('Location required.');
+            }
+
+            if (!this.errors.length) {
+                axios
+                    .post('/servicestack/employees/', this.employee)
+                    .then((response) => {
+                        if (response.status === 200) {
+                            this.$router.push('/employees');
+                        } else {
+                            this.errorMessage = response.errorMessage;
+                        }
+                    })
+                    .catch((error) => {
+                        this.errorMessage = error;
+                    });
+            }
+        },
+    },
 };
 </script>
 

@@ -7,7 +7,7 @@
 <script>
 
 export default ({
-  name: 'SidebarStandard',
+    name: 'SidebarStandard',
 });
 
 </script>

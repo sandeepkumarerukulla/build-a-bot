@@ -17,64 +17,64 @@
 import pinDirective from '../shared/pin-directive';
 
 function getPreviousValidIndex(index, length) {
-  const newIndex = index - 1;
-  return newIndex < 0 ? length - 1 : newIndex;
+    const newIndex = index - 1;
+    return newIndex < 0 ? length - 1 : newIndex;
 }
 
 function getNextValidIndex(index, length) {
-  const newIndex = index + 1;
-  return newIndex > length - 1 ? 0 : newIndex;
+    const newIndex = index + 1;
+    return newIndex > length - 1 ? 0 : newIndex;
 }
 
 export default {
-  name: 'PartSelector',
-  directives: {
-    pin: pinDirective,
-  },
-  props: ['parts', 'position'],
-  data() {
-    return {
-      selectedPartIndex: 0,
-      pinPadding: '10px',
-    };
-  },
-  computed: {
-    selectedPart() {
-      return this.parts[this.selectedPartIndex];
+    name: 'PartSelector',
+    directives: {
+        pin: pinDirective,
     },
-  },
-  created() {
-    this.emitSelectedpart();
-  },
-  updated() {
-    this.emitSelectedpart();
-  },
-  methods: {
-    navigateToPartInfo() {
-      this.$router.push({
-        name: 'Parts',
-        params: {
-          part: this.selectedPart,
+    props: ['parts', 'position'],
+    data() {
+        return {
+            selectedPartIndex: 0,
+            pinPadding: '10px',
+        };
+    },
+    computed: {
+        selectedPart() {
+            return this.parts[this.selectedPartIndex];
         },
-      });
     },
-    emitSelectedpart() {
-      this.$emit('partSelected', this.selectedPart);
+    created() {
+        this.emitSelectedpart();
     },
-    selectNextPart() {
-      this.selectedPartIndex = getNextValidIndex(
-        this.selectedPartIndex,
-        this.parts.length,
-      );
+    updated() {
+        this.emitSelectedpart();
     },
+    methods: {
+        navigateToPartInfo() {
+            this.$router.push({
+                name: 'Parts',
+                params: {
+                    part: this.selectedPart,
+                },
+            });
+        },
+        emitSelectedpart() {
+            this.$emit('partSelected', this.selectedPart);
+        },
+        selectNextPart() {
+            this.selectedPartIndex = getNextValidIndex(
+                this.selectedPartIndex,
+                this.parts.length,
+            );
+        },
 
-    selectPreviousPart() {
-      this.selectedPartIndex = getPreviousValidIndex(
-        this.selectedPartIndex,
-        this.parts.length,
-      );
+        selectPreviousPart() {
+            this.selectedPartIndex = getPreviousValidIndex(
+                this.selectedPartIndex,
+                this.parts.length,
+            );
+        },
     },
-  },
 };
 </script>
 

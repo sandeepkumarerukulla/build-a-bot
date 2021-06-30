@@ -41,36 +41,36 @@
 import axios from 'axios';
 
 export default {
-  name: 'DisplayEmployees',
-  data() {
-    return {
-      employees: [],
-      errorMessage: '',
-    };
-  },
-  created() {
-    axios.get('/servicestack/employees/').then((res) => {
-      this.employees = res.data;
-    });
-  },
-  methods: {
-    navigateToEdit(id) {
-      this.$router.push(`/edit/${id}`);
+    name: 'DisplayEmployees',
+    data() {
+        return {
+            employees: [],
+            errorMessage: '',
+        };
     },
-    deleteEmployee(id) {
-      axios.delete(`/servicestack/employees/${id}`)
-        .then((response) => {
-          if (response.status === 200) {
-            this.$router.go();
-          } else {
-            this.errorMessage = response.errorMessage;
-          }
-        })
-        .catch((error) => {
-          this.errorMessage = error;
+    created() {
+        axios.get('/servicestack/employees/').then((res) => {
+            this.employees = res.data;
         });
     },
-  },
+    methods: {
+        navigateToEdit(id) {
+            this.$router.push(`/edit/${id}`);
+        },
+        deleteEmployee(id) {
+            axios.delete(`/servicestack/employees/${id}`)
+                .then((response) => {
+                    if (response.status === 200) {
+                        this.$router.go();
+                    } else {
+                        this.errorMessage = response.errorMessage;
+                    }
+                })
+                .catch((error) => {
+                    this.errorMessage = error;
+                });
+        },
+    },
 };
 </script>
 
