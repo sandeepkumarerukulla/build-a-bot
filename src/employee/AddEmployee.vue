@@ -18,10 +18,6 @@
     </p>
 
       <div>
-        <label>Id: </label>
-        <input type="text" v-model="employee.Id" />
-      </div>
-      <div>
         <label>Name:</label>
         <input type="text" v-model="employee.Name" />
       </div>
@@ -45,7 +41,6 @@ export default {
     return {
       errors: [],
       employee: {
-        Id: null,
         Name: '',
         Location: '',
       },
@@ -55,9 +50,7 @@ export default {
   methods: {
     addEmployee() {
       this.errors = [];
-      if (!this.employee.Id) {
-        this.errors.push('ID required.');
-      }
+      
       if (!this.employee.Name) {
         this.errors.push('Name required.');
       }
@@ -130,3 +123,4 @@ div {
   margin: 5px;
 }
 </style>
+
