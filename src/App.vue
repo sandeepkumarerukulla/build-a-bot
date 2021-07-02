@@ -107,6 +107,7 @@ header {
   width: 1184px;
   margin: 0 auto;
 }
+
 ul {
   padding: 3px;
   display: flex;
@@ -118,6 +119,11 @@ ul {
   border-right: 1px solid #bbb;
 }
 
+.nav-link{
+  text-decoration: none;
+  color: inherit;
+}
+
 .nav-item.cart {
   position: relative;
   margin-left: auto;
@@ -127,11 +133,6 @@ ul {
 .logo {
   vertical-align: middle;
   height: 30px;
-}
-
-.nav-link{
-  text-decoration: none;
-  color: inherit;
 }
 
 .router-link-active{
