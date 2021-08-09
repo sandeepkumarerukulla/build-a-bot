@@ -25,7 +25,7 @@ Robots getters: {{robotsGettersFoo}} <br /> -->
           </li>
             <li class="nav-item">
             <router-link to="/employees" class="nav-link" exact>
-              Employees
+              Employees CICD
             </router-link>
           </li>
           <li class="nav-item cart">

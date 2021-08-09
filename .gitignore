@@ -21,3 +21,5 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+/src/.vs/slnx.sqlite
+/src/.vs/src/config/applicationhost.config
